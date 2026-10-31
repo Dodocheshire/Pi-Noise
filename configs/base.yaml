@@ -1,0 +1,60 @@
+experiment:
+  name: cifar10_local
+  seed: 0
+  device: cuda
+  threads: 4
+paths:
+  cache: artifacts/cache
+  runs: artifacts/runs
+data:
+  dataset: cifar10
+  root: artifacts/data
+  concepts: configs/concepts/cifar10_official.txt
+  train_per_class: 100
+  val_per_class: 30
+  test_per_class: 50
+  batch_size: 32
+  cache_internal: true
+  cache_images: false
+  split_seed: null
+  num_workers: 0
+  version: cifar10-official-v1
+backbone:
+  name: resnet18
+teacher:
+  name: ViT-B/32
+baseline:
+  import_dir: null
+  include_adapter_val: false
+  validation_split: val
+  seed: null
+  activation_cutoff: 0.20
+  interpretability_cutoff: 0.25
+  projection_steps: 300
+  projection_lr: 0.001
+  projection_batch_size: 50000
+  head:
+    steps: 400
+    batch_size: 256
+    lr: 0.1
+    lambda: 0.001
+    alpha: 0.99
+injection:
+  site: target_internal
+  point: pre_layer4
+noise:
+  generator: concept_cross_attention
+  parameterization: mean_scale
+  hidden_dim: 64
+  initial_scale: 0.02
+  image_grid: 14
+training:
+  stage: generator_only
+  epochs: 5
+  lr: 0.001
+  projection_lr: 0.00001
+  grad_clip_norm: 1.0
+  batch_size: 64
+  concept_anchor_weight: 1.0
+  noise_energy_weight: 0.001
+  teacher_alignment_weight: 1.0

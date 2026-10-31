@@ -1,0 +1,24 @@
+extends: [base.yaml]
+experiment:
+  name: server_cifar10
+  device: cuda
+  threads: 8
+data:
+  root: /home/pengcheng/VLG-CBM/datasets
+  train_per_class: 0
+  val_per_class: 500
+  test_per_class: 0
+  batch_size: 128
+  num_workers: 4
+  split_seed: 0
+baseline:
+  seed: 0
+  activation_cutoff: 0.25
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  head:
+    steps: 1000
+    lambda: 0.001
+training:
+  epochs: 20
+  batch_size: 256

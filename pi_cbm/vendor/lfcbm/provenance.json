@@ -1,0 +1,28 @@
+{
+  "repository": "https://github.com/Trustworthy-ML-Lab/Label-free-CBM",
+  "commit": "fa2869d46c454f406af69b19d3d5427f2d427492",
+  "authors": ["Tuomas Oikarinen", "Subhro Das", "Lam M. Nguyen", "Tsui-Wei Weng"],
+  "solver_repository": "https://github.com/MadryLab/glm_saga",
+  "files": {
+    "glm_saga/elasticnet.py": {
+      "sha256": "300e5ad701ac39324741017a07863eb53dde6c76b418a8bf718bebb0d9459fec",
+      "local_path": "pi_cbm/vendor/lfcbm/elasticnet.py"
+    },
+    "similarity.py": {
+      "sha256": "0462a37e8718a9f6f6d5d068cee40ae83e158598201550f02b12903c9dba1a63",
+      "local_path": "pi_cbm/vendor/lfcbm/similarity.py"
+    },
+    "train_cbm.py": {
+      "sha256": "e2c758402a4e6f7006deee1d8f2e3493b47f9612d7310faf768b7def6b569a09",
+      "local_path": "tests/fixtures/train_cbm_upstream.py"
+    },
+    "data/concept_sets/cifar10_filtered.txt": {
+      "sha256": "dbd485c91708585e0740db46773dd9e7bccbf1bb2424a6aeaa6ab28f5e06ff19",
+      "local_path": "configs/concepts/cifar10_official.txt"
+    },
+    "data/concept_sets/cifar100_filtered.txt": {
+      "sha256": "960a78d29f65d3df0134edc3bd2573b6bc79b6ece970ae217011cb3e737ae0e3",
+      "local_path": "configs/concepts/cifar100_official.txt"
+    }
+  }
+}

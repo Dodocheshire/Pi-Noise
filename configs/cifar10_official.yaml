@@ -1,0 +1,36 @@
+extends: [cifar10.yaml]
+experiment:
+  name: cifar10_official
+paths:
+  cache: /dev/shm/pi-cbm-cifar10-official
+  runs: /home/pengcheng/Pi-CBM/artifacts/runs-cifar-official
+data:
+  concepts: configs/concepts/cifar10_official.txt
+  batch_size: 512
+  internal_dtype: native
+backbone:
+  name: clip_RN50
+  precision: native
+teacher:
+  name: ViT-B/16
+  precision: native
+baseline:
+  import_dir: null
+  # Reassemble the full 50k CIFAR train set for CBM fitting only.
+  include_adapter_val: true
+  validation_split: test
+  activation_cutoff: 0.25
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  projection_lr: 0.001
+  projection_batch_size: 50000
+  head:
+    steps: 1000
+    batch_size: 256
+    lr: 0.1
+    lambda: 0.0007
+    alpha: 0.99
+injection:
+  point: pre_attnpool
+training:
+  lr: 0.0003

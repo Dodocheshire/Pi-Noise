@@ -1,0 +1,28 @@
+extends: [cifar10.yaml]
+experiment:
+  name: server_cub_lfcbm
+paths:
+  cache: /home/pengcheng/Pi-CBM/artifacts/cache-cub-lfcbm
+  runs: /home/pengcheng/Pi-CBM/artifacts/runs-cub-lfcbm
+data:
+  dataset: cub
+  root: /home/pengcheng/VLG-CBM/datasets/CUB
+  concepts: configs/concepts/cub_lfcbm.txt
+  val_per_class: 5
+  version: cub200-existing-rgb-5990train-5790test-v1
+backbone:
+  name: resnet18_cub
+teacher:
+  name: ViT-B/16
+baseline:
+  # Use all five tensors from the published LF-CBM checkpoint.
+  import_dir: /home/pengcheng/Pi-CBM/artifacts/pretrained/lfcbm-cub
+  # Upstream training settings for provenance; import_dir bypasses fitting.
+  activation_cutoff: 0.26
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  head:
+    steps: 5000
+    lambda: 0.0002
+injection:
+  point: pre_stage4

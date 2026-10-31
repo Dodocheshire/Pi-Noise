@@ -1,0 +1,59 @@
+experiment:
+  name: cub_image_finetune_projection
+  seed: 0
+  device: cuda
+  threads: 8
+paths:
+  cache: artifacts/cub-image-cache
+  runs: artifacts/cub-image-runs
+data:
+  dataset: cub
+  root: /home/pengcheng/VLG-CBM/datasets/CUB
+  concepts: configs/concepts/cub_lfcbm.txt
+  train_per_class: 0
+  val_per_class: 5
+  test_per_class: 0
+  batch_size: 128
+  cache_internal: false
+  cache_images: true
+  split_seed: 0
+  num_workers: 4
+  version: cub200-existing-rgb-5990train-5790test-v1
+backbone:
+  name: resnet18_cub
+teacher:
+  name: ViT-B/16
+baseline:
+  import_dir: /home/pengcheng/Pi-CBM/artifacts/pretrained/lfcbm-cub
+  include_adapter_val: false
+  validation_split: val
+  seed: 0
+  activation_cutoff: 0.26
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  projection_lr: 0.001
+  projection_batch_size: 50000
+  head:
+    steps: 5000
+    batch_size: 256
+    lr: 0.1
+    lambda: 0.0002
+    alpha: 0.99
+injection:
+  site: target_image
+  point: input
+noise:
+  generator: concept_cross_attention
+  parameterization: mean_scale
+  hidden_dim: 64
+  initial_scale: 0.02
+  image_grid: 14
+training:
+  stage: finetune_projection
+  epochs: 20
+  lr: 0.001
+  projection_lr: 1.0e-05
+  batch_size: 256
+  concept_anchor_weight: 1.0
+  noise_energy_weight: 0.001
+  teacher_alignment_weight: 1.0

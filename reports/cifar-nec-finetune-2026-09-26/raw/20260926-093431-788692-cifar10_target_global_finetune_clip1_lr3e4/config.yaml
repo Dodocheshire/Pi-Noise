@@ -1,0 +1,63 @@
+experiment:
+  name: cifar10_target_global_finetune_clip1_lr3e4
+  seed: 0
+  device: cuda
+  threads: 8
+paths:
+  cache: /dev/shm/pi-cbm-cifar10-nec-noimage
+  runs: artifacts/cifar-nec-runs
+data:
+  dataset: cifar10
+  root: /home/pengcheng/VLG-CBM/datasets
+  concepts: configs/concepts/cifar10_official.txt
+  train_per_class: 0
+  val_per_class: 500
+  test_per_class: 0
+  batch_size: 512
+  cache_internal: true
+  cache_images: false
+  split_seed: 0
+  num_workers: 4
+  version: cifar10-official-v1
+  internal_dtype: native
+backbone:
+  name: clip_RN50
+  precision: native
+teacher:
+  name: ViT-B/16
+  precision: native
+baseline:
+  import_dir: null
+  include_adapter_val: true
+  validation_split: test
+  seed: 0
+  activation_cutoff: 0.25
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  projection_lr: 0.001
+  projection_batch_size: 50000
+  head:
+    steps: 1000
+    batch_size: 256
+    lr: 0.1
+    lambda: 0.0007
+    alpha: 0.99
+injection:
+  site: target_global
+  point: global
+noise:
+  generator: concept_cross_attention
+  parameterization: mean_scale
+  hidden_dim: 64
+  initial_scale: 0.02
+  image_grid: 14
+training:
+  stage: finetune_projection
+  epochs: 20
+  lr: 0.0003
+  projection_lr: 1.0e-05
+  grad_clip_norm: 1.0
+  batch_size: 256
+  concept_anchor_weight: 1.0
+  noise_energy_weight: 0.001
+  teacher_alignment_weight: 1.0

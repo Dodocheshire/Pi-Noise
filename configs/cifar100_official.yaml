@@ -1,0 +1,10 @@
+extends: [cifar10_official.yaml]
+experiment:
+  name: cifar100_official
+paths:
+  cache: /dev/shm/pi-cbm-cifar100-official
+data:
+  dataset: cifar100
+  concepts: configs/concepts/cifar100_official.txt
+  val_per_class: 50
+  version: cifar100-official-v1

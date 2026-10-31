@@ -1,0 +1,50 @@
+extends: [cifar10_official.yaml]
+experiment:
+  name: imagenet100
+  seed: 0
+  threads: 8
+paths:
+  # Global ResNet and CLIP concept features fit on disk; image/spatial inputs stream.
+  cache: /home/pengcheng/Pi-CBM/artifacts/cache-imagenet100
+  runs: /home/pengcheng/Pi-CBM/artifacts/runs-imagenet100
+data:
+  dataset: imagenet
+  root: /home/pengcheng/VLG-CBM/datasets/imagenet/ILSVRC/Data/CLS-LOC/ImageNet_train_100_10
+  official_val_root: /home/pengcheng/VLG-CBM/datasets/imagenet/ILSVRC/Data/CLS-LOC/ImageNet_val
+  concepts: configs/concepts/imagenet_official.txt
+  train_per_class: 100
+  val_per_class: 10
+  test_per_class: 0
+  batch_size: 64
+  num_workers: 8
+  split_seed: 42
+  input_mode: stream
+  cache_internal: false
+  cache_images: false
+  version: imagenet100-adapter10-datacomp-f5486581-seed42-v1
+backbone:
+  name: resnet50
+teacher:
+  name: ViT-B/16
+  precision: native
+baseline:
+  import_dir: null
+  include_adapter_val: false
+  validation_split: test
+  activation_cutoff: 0.28
+  interpretability_cutoff: 0.45
+  projection_steps: 1000
+  projection_lr: 0.001
+  projection_batch_size: 50000
+  head:
+    steps: 80
+    batch_size: 256
+    lr: 0.1
+    lambda: 0.0001
+    alpha: 0.99
+injection:
+  site: target_global
+  point: pre_layer4
+training:
+  stage: finetune_projection
+  batch_size: 16

@@ -1,0 +1,381 @@
+{
+  "baseline_test": {
+    "accuracy": 0.8646000027656555,
+    "nll": 0.3885951042175293,
+    "concept_drift_mse": 1.2482995594229745e-13,
+    "teacher_cos_cubed": 0.6153326630592346,
+    "nec": 37.0,
+    "head_nonzero": 370,
+    "head_total": 1320,
+    "examples": 10000
+  },
+  "test": {
+    "accuracy": 0.8780999779701233,
+    "nll": 0.3440432548522949,
+    "concept_drift_mse": 0.010180722922086716,
+    "teacher_cos_cubed": 0.618999719619751,
+    "nec": 26.1,
+    "head_nonzero": 261,
+    "head_total": 1320,
+    "examples": 10000
+  },
+  "baseline_fit": {
+    "method": "lfcbm_from_scratch",
+    "upstream_commit": "fa2869d46c454f406af69b19d3d5427f2d427492",
+    "train_examples": 50000,
+    "validation_examples": 10000,
+    "validation_split": "test",
+    "include_adapter_val": true,
+    "active_concepts": 138,
+    "selected_concepts": 132,
+    "projection": {
+      "best_step": 150,
+      "val_similarity": 0.606997013092041,
+      "history": [
+        {
+          "step": 0,
+          "val_loss": -0.09243312478065491
+        },
+        {
+          "step": 50,
+          "val_loss": -0.5826687216758728
+        },
+        {
+          "step": 100,
+          "val_loss": -0.6034994721412659
+        },
+        {
+          "step": 150,
+          "val_loss": -0.606997013092041
+        },
+        {
+          "step": 200,
+          "val_loss": -0.606910765171051
+        }
+      ]
+    },
+    "head": {
+      "solver": "upstream_glm_saga",
+      "effective_lambda": 0.0007070707070707071,
+      "metrics": {
+        "loss_tr": 0.4258943200111389,
+        "acc_tr": 0.8695799708366394,
+        "loss_val": 0.43818598985671997,
+        "acc_val": 0.8646000027656555,
+        "loss_test": -1,
+        "acc_test": -1
+      },
+      "nonzero_gt_1e_5": 370
+    }
+  },
+  "refit": {
+    "solver": "upstream_glm_saga",
+    "effective_lambda": 0.0007070707070707071,
+    "metrics": {
+      "loss_tr": 0.36911141872406006,
+      "acc_tr": 0.8895111083984375,
+      "loss_val": 0.39709359407424927,
+      "acc_val": 0.8787999749183655,
+      "loss_test": -1,
+      "acc_test": -1
+    },
+    "nonzero_gt_1e_5": 261
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1594697560522291,
+      "val": {
+        "accuracy": 0.8744000196456909,
+        "nll": 0.3706715703010559,
+        "concept_drift_mse": 0.026077328249812126,
+        "teacher_cos_cubed": 0.6568095088005066,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7228271501541138,
+      "val": {
+        "accuracy": 0.8700000047683716,
+        "nll": 0.37275436520576477,
+        "concept_drift_mse": 0.008709665387868881,
+        "teacher_cos_cubed": 0.6572794914245605,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7136592678917779,
+      "val": {
+        "accuracy": 0.8737999796867371,
+        "nll": 0.367897093296051,
+        "concept_drift_mse": 0.008363327011466026,
+        "teacher_cos_cubed": 0.6581311225891113,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7110317071702745,
+      "val": {
+        "accuracy": 0.8745999932289124,
+        "nll": 0.3646870255470276,
+        "concept_drift_mse": 0.00755915604531765,
+        "teacher_cos_cubed": 0.6581355929374695,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.707138521639506,
+      "val": {
+        "accuracy": 0.8754000067710876,
+        "nll": 0.36300668120384216,
+        "concept_drift_mse": 0.007375097833573818,
+        "teacher_cos_cubed": 0.6585458517074585,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7040002739800347,
+      "val": {
+        "accuracy": 0.8759999871253967,
+        "nll": 0.3610534965991974,
+        "concept_drift_mse": 0.007419048808515072,
+        "teacher_cos_cubed": 0.6582087278366089,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.701628739950392,
+      "val": {
+        "accuracy": 0.876800000667572,
+        "nll": 0.3596791625022888,
+        "concept_drift_mse": 0.008060595951974392,
+        "teacher_cos_cubed": 0.6581611037254333,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.6995673397488065,
+      "val": {
+        "accuracy": 0.8777999877929688,
+        "nll": 0.3591546416282654,
+        "concept_drift_mse": 0.009616633877158165,
+        "teacher_cos_cubed": 0.6571364998817444,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6983223258866205,
+      "val": {
+        "accuracy": 0.8776000142097473,
+        "nll": 0.35659918189048767,
+        "concept_drift_mse": 0.008349048905074596,
+        "teacher_cos_cubed": 0.6580697894096375,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6958355437596639,
+      "val": {
+        "accuracy": 0.876800000667572,
+        "nll": 0.3553811311721802,
+        "concept_drift_mse": 0.009957940317690372,
+        "teacher_cos_cubed": 0.6570844054222107,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.6941172616110908,
+      "val": {
+        "accuracy": 0.8781999945640564,
+        "nll": 0.353665828704834,
+        "concept_drift_mse": 0.008437280543148518,
+        "teacher_cos_cubed": 0.6579821705818176,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.6928834394454956,
+      "val": {
+        "accuracy": 0.8777999877929688,
+        "nll": 0.3531433641910553,
+        "concept_drift_mse": 0.009873168542981148,
+        "teacher_cos_cubed": 0.6561291217803955,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.6915352283477784,
+      "val": {
+        "accuracy": 0.8805999755859375,
+        "nll": 0.3545153737068176,
+        "concept_drift_mse": 0.010297137312591076,
+        "teacher_cos_cubed": 0.6556191444396973,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.6903348087840611,
+      "val": {
+        "accuracy": 0.8787999749183655,
+        "nll": 0.3519023060798645,
+        "concept_drift_mse": 0.008821475319564342,
+        "teacher_cos_cubed": 0.6567033529281616,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.6895454551908705,
+      "val": {
+        "accuracy": 0.8794000148773193,
+        "nll": 0.35192200541496277,
+        "concept_drift_mse": 0.00897148810327053,
+        "teacher_cos_cubed": 0.6560962796211243,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.6879184853023953,
+      "val": {
+        "accuracy": 0.881600022315979,
+        "nll": 0.34860748052597046,
+        "concept_drift_mse": 0.010504604317247868,
+        "teacher_cos_cubed": 0.6570637822151184,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.6865646304660373,
+      "val": {
+        "accuracy": 0.8813999891281128,
+        "nll": 0.3481387495994568,
+        "concept_drift_mse": 0.009455596096813679,
+        "teacher_cos_cubed": 0.6567785143852234,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.685650466187795,
+      "val": {
+        "accuracy": 0.879800021648407,
+        "nll": 0.3486594259738922,
+        "concept_drift_mse": 0.008915943093597889,
+        "teacher_cos_cubed": 0.6564220786094666,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.684150979593065,
+      "val": {
+        "accuracy": 0.8820000290870667,
+        "nll": 0.3473099172115326,
+        "concept_drift_mse": 0.010147934779524803,
+        "teacher_cos_cubed": 0.6561480760574341,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.6826088412178887,
+      "val": {
+        "accuracy": 0.8781999945640564,
+        "nll": 0.3483079671859741,
+        "concept_drift_mse": 0.00988924689590931,
+        "teacher_cos_cubed": 0.6561547517776489,
+        "nec": 37.0,
+        "head_nonzero": 370,
+        "head_total": 1320,
+        "examples": 5000
+      }
+    }
+  ],
+  "manifest": {
+    "git_commit": "235eab65fe027da1123df4da24c8bd275a04c70e",
+    "git_status": " M README.md\n M configs/base.yaml\n M configs/server/cifar10_official.yaml\n M pi_cbm/evaluation/inference.py\n M pi_cbm/pipeline.py\n M pi_cbm/training/adapt.py\n M tests/test_pipeline.py\n",
+    "source_sha256": "0c763a54b54f61948bb49e344c416e6e346f76fcd2c66d8ca6e97fa508157607",
+    "split_sha256": "00067d483e799471d0b47aaf513d415a2edb53bb99f10d3968101c4acef24643",
+    "concept_sha256": "766fe493f8c3026b56f9d85f1da89de800640a89889a91b293eb4d52ac1b9d26",
+    "feature_cache": "/dev/shm/pi-cbm-cifar10-nec/features-63e2911573a99f9d.pt",
+    "torch": "2.11.0+cu128",
+    "python": "3.11.15",
+    "platform": "Linux-5.15.0-190-generic-x86_64-with-glibc2.35",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "cuda_visible_devices": "1",
+    "elapsed_seconds": 1535.2177608110942
+  }
+}

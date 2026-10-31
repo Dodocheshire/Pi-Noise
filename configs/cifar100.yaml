@@ -1,0 +1,8 @@
+extends: [cifar10.yaml]
+experiment:
+  name: server_cifar100
+data:
+  dataset: cifar100
+  concepts: configs/concepts/cifar100_official.txt
+  val_per_class: 50
+  version: cifar100-official-v1
